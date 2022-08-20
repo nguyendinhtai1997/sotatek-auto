@@ -5,7 +5,6 @@ import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.remote.RemoteWebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -37,6 +36,11 @@ public class BasePage {
     public void backAndroid() {
         driver.navigate().back();
     }
+
+    public void hideKeyboardAndroid() {
+        driver.hideKeyboard();
+    }
+
 
     public void waitForVisibility(By e) {
         WebDriverWait wait = new WebDriverWait(driver, TestUtils.WAIT);

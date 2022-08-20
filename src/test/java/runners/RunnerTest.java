@@ -22,12 +22,7 @@ import static io.cucumber.junit.CucumberOptions.SnippetType.CAMELCASE;
         , snippets = CAMELCASE
         , dryRun = false
         , monochrome = true
-//        , tags = "@BeforeMainScreen"
-//        , tags = "@WalletTabScreen"
-//        , tags = "@SendFunc"
-//        , tags = "@ReceiveFunc"
-//        , tags = "@SettingsTabScreen"
-        , tags = "@BackUpWallet"
+        , tags = "@Todoist"
 )
 
 public class RunnerTest {

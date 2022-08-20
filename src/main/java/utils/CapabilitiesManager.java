@@ -29,7 +29,7 @@ public class CapabilitiesManager {
                     caps.setCapability("systemPort", params.getSystemPort());
                     caps.setCapability("chromeDriverPort", params.getChromeDriverPort());
 //                    Không reset app
-                    caps.setCapability("noReset", true);
+//                    caps.setCapability("noReset", true);
 //                    Cài app bằng bộ cài trong project
                     String androidAppUrl = System.getProperty("user.dir") + File.separator + "src" + File.separator + "test"
                             + File.separator + "resources" + File.separator + "apps" + File.separator + "android" + File.separator + "app-release.apk";
