@@ -3,6 +3,7 @@ package runners;
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
 import org.apache.logging.log4j.ThreadContext;
+import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.runner.RunWith;
 import utils.DriverManager;
@@ -39,16 +40,16 @@ public class RunnerTest {
         new DriverManager().initializeDriver();
     }
 
-//    @AfterClass
-//    public static void quit() {
-//        DriverManager driverManager = new DriverManager();
-//        if (driverManager.getDriver() != null) {
-//            driverManager.getDriver().quit();
-//            driverManager.setDriver(null);
-//        }
-//        ServerManager serverManager = new ServerManager();
-//        if (serverManager.getServer() != null) {
-//            serverManager.getServer().stop();
-//        }
-//    }
+    @AfterClass
+    public static void quit() {
+        DriverManager driverManager = new DriverManager();
+        if (driverManager.getDriver() != null) {
+            driverManager.getDriver().quit();
+            driverManager.setDriver(null);
+        }
+        ServerManager serverManager = new ServerManager();
+        if (serverManager.getServer() != null) {
+            serverManager.getServer().stop();
+        }
+    }
 }
