@@ -1,4 +1,4 @@
-# bho-ui-automation-testing-for-windows
+# windows
 
 Important notes:
 - Use node LTS and not current version
@@ -91,7 +91,7 @@ Important notes:
 - Be admin on your MAC
 - If on corpnet (office laptop/computer), make sure anti-virus is not blocking node and Appium installation. Work with your security team in case of issues
 
-# bho-ui-automation-testing-for-macos
+# macos
 
 Install homebrew [package manager for macOS and is used to install software packages]
 ======================================================================================
