@@ -8,7 +8,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.restassured.response.Response;
 import net.serenitybdd.core.Serenity;
-import pages.TodoistPage;
+import pages.Question1Page;
 import todoist.models.request.CreateProjectRequest;
 import todoist.models.response.CreateProjectResponse;
 import todoist.models.response.GetTasksResponse;
@@ -20,12 +20,12 @@ import static common.configs.ApiConfigs.*;
 import static common.handlers.RequestAPI.getHeaderBeDefault;
 import static common.handlers.matcher.CompareNew.compareTwoObjectTheSame;
 
-public class TodoistStepDef {
+public class Question1StepDef {
 
     private final String nameProject = "AutoTest";
     private final String goalText = "AutoTest Todoist";
 
-    TodoistPage todoistPage = new TodoistPage();
+    Question1Page question1Page = new Question1Page();
 
     private Map<String, Object> request() {
         return getHeaderBeDefault(AUTHORIZATION_VALUE);
@@ -43,27 +43,27 @@ public class TodoistStepDef {
 
     @And("Login into mobile application")
     public void loginIntoMobileApplication() {
-        todoistPage.tapContinueWithEmailBtn();
-        todoistPage.inputEmail(ACCOUNT);
-        todoistPage.tapContinueWithEmailBtn();
-        todoistPage.inputPassword(PASSWORD);
-        todoistPage.tapLoginBtn();
-        todoistPage.hideKeyboard();
-        todoistPage.tapMenuBtn();
+        question1Page.tapContinueWithEmailBtn();
+        question1Page.inputEmail(ACCOUNT);
+        question1Page.tapContinueWithEmailBtn();
+        question1Page.inputPassword(PASSWORD);
+        question1Page.tapLoginBtn();
+        question1Page.hideKeyboard();
+        question1Page.tapMenuBtn();
     }
 
     @Then("Verify on mobile that project is created")
     public void verifyOnMobileThatProjectIsCreated() {
-        String actualName = todoistPage.getNameLastProject();
+        String actualName = question1Page.getNameLastProject();
         compareTwoObjectTheSame(nameProject, actualName, null, null);
-        todoistPage.backAndroid();
+        question1Page.backAndroid();
     }
 
     @Given("Create test task via mobile application in test project")
     public void createTestTaskViaMobileApplicationInTestProject() {
-        todoistPage.tapQuickAddTaskBtn();
-        todoistPage.inputGoal(goalText);
-        todoistPage.backAndroid();
+        question1Page.tapQuickAddTaskBtn();
+        question1Page.inputGoal(goalText);
+        question1Page.backAndroid();
     }
 
     @Then("Verify that task created correctly")
@@ -78,14 +78,14 @@ public class TodoistStepDef {
 
     @And("Open test project")
     public void openTestProject() {
-        todoistPage.tapLastProject();
+        question1Page.tapLastProject();
     }
 
     @And("Created test task")
     public void createdTestTask() {
-        todoistPage.tapQuickAddTaskBtn();
-        todoistPage.inputGoal(goalText);
-        todoistPage.backAndroid();
+        question1Page.tapQuickAddTaskBtn();
+        question1Page.inputGoal(goalText);
+        question1Page.backAndroid();
     }
 
     @And("Complete test task")
@@ -95,7 +95,7 @@ public class TodoistStepDef {
         List<GetTasksResponse> listTasks = Common.gson.fromJson(res.asString(), new TypeToken<List<GetTasksResponse>>() {
         }.getType());
         Serenity.setSessionVariable("listTasks").to(listTasks);
-        todoistPage.completeLastTask();
+        question1Page.completeLastTask();
     }
 
     @And("Reopen test task via API")
@@ -110,9 +110,9 @@ public class TodoistStepDef {
     @Then("Mobile: Verify that test task appears in your test project")
     public void mobileVerifyThatTestTaskAppearsInYourTestProject() throws InterruptedException {
         Thread.sleep(10000);
-        todoistPage.swipe(500, 500, 500, 1700, 500);
-        todoistPage.getNameLastTask();
-        String actualTaskName = todoistPage.getNameLastTask();
+        question1Page.swipe(500, 500, 500, 1700, 500);
+        question1Page.getNameLastTask();
+        String actualTaskName = question1Page.getNameLastTask();
         compareTwoObjectTheSame(goalText, actualTaskName, null, null);
     }
 }

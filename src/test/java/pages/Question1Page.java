@@ -7,7 +7,7 @@ import io.appium.java_client.pagefactory.AndroidFindBys;
 
 import java.util.List;
 
-public class TodoistPage extends BasePage {
+public class Question1Page extends BasePage {
 
     @AndroidFindBy(xpath = "//android.widget.Button[contains(@text,'CONTINUE WITH EMAIL')]")
     private MobileElement continueWithEmailBtn;
@@ -42,7 +42,7 @@ public class TodoistPage extends BasePage {
     @AndroidFindBys(@AndroidBy(xpath = "//android.widget.TextView[@resource-id='com.todoist:id/text']"))
     private List<MobileElement> listNameTasks;
 
-    public TodoistPage() {
+    public Question1Page() {
     }
 
     public void tapContinueWithEmailBtn() {

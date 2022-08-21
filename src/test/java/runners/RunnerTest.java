@@ -23,7 +23,7 @@ import static io.cucumber.junit.CucumberOptions.SnippetType.CAMELCASE;
         , snippets = CAMELCASE
         , dryRun = false
         , monochrome = true
-        , tags = "@Todoist"
+        , tags = "@Question1"
 )
 
 public class RunnerTest {

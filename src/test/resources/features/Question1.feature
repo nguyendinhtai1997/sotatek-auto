@@ -1,4 +1,4 @@
-@Todoist
+@Question1
 Feature: Question 1
 
   Scenario: Test “Create Project”
