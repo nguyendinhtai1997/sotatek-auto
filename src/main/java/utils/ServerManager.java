@@ -18,7 +18,7 @@ public class ServerManager {
 
     public void startServer() {
         utils.log().info("starting appium server");
-        AppiumDriverLocalService server = WindowsGetAppiumService();
+        AppiumDriverLocalService server = MacGetAppiumService();
         server.start();
         if (!server.isRunning()) {
             utils.log().fatal("Appium server not started. ABORT!!!");
